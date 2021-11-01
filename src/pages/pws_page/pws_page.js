@@ -8,6 +8,8 @@ import InputComponent from "../../components/input_component/input.component";
 
 import axios from "axios";
 
+import decryptPw from "../../pw_utils/decryptPassword";
+
 const PwsPage = () => {
   const [pw, setPw] = useState("");
 
@@ -23,9 +25,8 @@ const PwsPage = () => {
       });
 
       if (result.data.PassWord) {
-        setPw(result.data.PassWord);
-      } else {
-        setPw("PW not Found");
+        let pw = decryptPw(result.data.PassWord);
+        setPw(pw);
       }
     } catch (e) {
       console.log("Password not found.");
@@ -38,7 +39,7 @@ const PwsPage = () => {
       <FormComponent onSubmit={onSubmit} method="post">
         <InputComponent name="website" type="text" labelName="Website" />
         <span className="pw-label">PW:</span>
-        {pw && <span className="pw">{pw}</span>}
+        {pw ? <span className="pw">{pw}</span> : <span className="pw">No PW Found</span>}
         <ButtonComponent>GET</ButtonComponent>
       </FormComponent>
       <img className="img" alt="logo" src="./images/hack.jpg" />

@@ -9,6 +9,7 @@ import ButtonComponent from "../../components/button_component/button.component"
 import FormComponent from "../../components/form_component/form.component";
 
 import pwGenerator from "../../pw_utils/passwordGenerator";
+import encryptPw from "../../pw_utils/encryptPassword";
 
 const AddPage = () => {
   const [password, setPassword] = useState("");
@@ -17,10 +18,12 @@ const AddPage = () => {
   const savePw = async (e) => {
     e.preventDefault();
 
-    const masterPw = e.target.masterPw.value;
+    let masterPw = e.target.masterPw.value;
     const website = e.target.website.value;
-    const pw = e.target.password.value;
+    let pw = e.target.password.value;
 
+    pw = encryptPw(pw);
+    
     try {
       const response = await axios.post("http://localhost:8000/add", {
         masterPw,
