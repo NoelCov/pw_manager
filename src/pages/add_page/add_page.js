@@ -1,5 +1,3 @@
-import "./add_page.styles.scss";
-
 import React, { useState } from "react";
 
 import axios from "axios";
@@ -11,6 +9,8 @@ import FormComponent from "../../components/form_component/form.component";
 import pwGenerator from "../../pw_utils/passwordGenerator";
 import encryptPw from "../../pw_utils/encryptPassword";
 
+import "./add_page.styles.scss";
+
 const AddPage = () => {
   const [password, setPassword] = useState("");
   const [pwSaved, setPwSaved] = useState(false);
@@ -18,20 +18,19 @@ const AddPage = () => {
   const savePw = async (e) => {
     e.preventDefault();
 
-    let masterPw = e.target.masterPw.value;
+    const encryptionMessage = e.target.encryptionMessage.value;
     const website = e.target.website.value;
-    let pw = e.target.password.value;
+    const pw = e.target.password.value;
 
-    pw = encryptPw(pw);
-    
+    const encryptedPw = encryptPw(pw, encryptionMessage);
+
     try {
       const response = await axios.post("http://localhost:8000/add", {
-        masterPw,
         website,
-        pw,
+        encryptedPw,
       });
 
-      if (response) {
+      if (response.data === "Password Saved Successfully") {
         setPwSaved(true);
       } else {
         setPwSaved(false);
@@ -52,17 +51,35 @@ const AddPage = () => {
 
   return (
     <div className="add-page-container">
-      <h1 className="h1">ADD PWS</h1>
       <FormComponent onSubmit={savePw} method="post">
-        <InputComponent name="website" type="text" labelName="Website" />
-        <InputComponent type="password" name="password" labelName="PW" />
-        <InputComponent name="masterPw" type="password" labelName="Master PW" />
+        <InputComponent
+          name="website"
+          type="text"
+          labelName="Website"
+          required
+        />
+        <InputComponent
+          type="password"
+          name="password"
+          labelName="PW"
+          required
+        />
+        <InputComponent
+          name="encryptionMessage"
+          type="text"
+          labelName="Encryption Message"
+        />
         <ButtonComponent>SAVE PW</ButtonComponent>
-        {pwSaved && <span>PW Saved Successfuly.</span>}
+        <span>{pwSaved ? "PW Saved Successfuly" : "Password not saved"}</span>
       </FormComponent>
 
       <FormComponent onSubmit={generatePw}>
-        <InputComponent type="number" name="length" labelName="Length for PW" />
+        <InputComponent
+          type="number"
+          name="length"
+          labelName="Length for PW"
+          required
+        />
         <div>PW: </div>
         <div>{password}</div>
         <ButtonComponent>GENERATE PW</ButtonComponent>
