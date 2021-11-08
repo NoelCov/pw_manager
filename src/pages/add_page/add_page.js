@@ -9,6 +9,8 @@ import FormComponent from "../../components/form_component/form.component";
 import pwGenerator from "../../pw_utils/passwordGenerator";
 import encryptPw from "../../pw_utils/encryptPassword";
 
+import { server } from "../../constants";
+
 import "./add_page.styles.scss";
 
 const AddPage = () => {
@@ -25,7 +27,7 @@ const AddPage = () => {
     const encryptedPw = encryptPw(pw, encryptionMessage);
 
     try {
-      const response = await axios.post("http://localhost:8000/add", {
+      const response = await axios.post(`${server}/add`, {
         website,
         encryptedPw,
       });

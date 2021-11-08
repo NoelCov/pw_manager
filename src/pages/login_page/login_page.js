@@ -13,6 +13,8 @@ import axios from "axios";
 
 import { useHistory } from "react-router-dom";
 
+import { server } from "../../constants";
+
 const LoginPage = ({ setLoggedIn }) => {
   const history = useHistory();
   const [errorMessage, setErrorMessage] = useState("");
@@ -29,7 +31,7 @@ const LoginPage = ({ setLoggedIn }) => {
 
     try {
       // Check if user exists in db
-      const response = await axios.post("http://localhost:8000/login", {
+      const response = await axios.post(`${server}/login`, {
         username,
         encryptedPw,
         encryptionMessage,

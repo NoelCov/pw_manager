@@ -11,6 +11,8 @@ import ButtonComponent from "../../components/button_component/button.component"
 import encryptPw from "../../pw_utils/encryptPassword";
 import createHash from "../../pw_utils/createHash";
 
+import { server } from "../../constants";
+
 const ChangePage = () => {
   const [resultMessage, setResultMessage] = useState("");
 
@@ -29,7 +31,7 @@ const ChangePage = () => {
     const newMasterPwEncrypted = encryptPw(hash, newEncryptMessage);
 
     if (oldMasterPw === "") {
-      const response = await axios.post("http://localhost:8000/change", {
+      const response = await axios.post(`${server}/change`, {
         newMasterPwEncrypted,
       });
       if (response.data === "Master Password Successfully Changed") {

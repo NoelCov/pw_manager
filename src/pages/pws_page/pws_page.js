@@ -4,6 +4,8 @@ import FormComponent from "../../components/form_component/form.component";
 import ButtonComponent from "../../components/button_component/button.component";
 import InputComponent from "../../components/input_component/input.component";
 
+import { server } from "../../constants";
+
 import axios from "axios";
 
 import decryptPw from "../../pw_utils/decryptPassword";
@@ -21,7 +23,7 @@ const PwsPage = () => {
     setPw("");
 
     try {
-      const response = await axios.post("http://localhost:8000/pw", {
+      const response = await axios.post(`${server}/pw`, {
         website,
       });
 
