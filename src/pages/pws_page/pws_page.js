@@ -35,6 +35,8 @@ const PwsPage = () => {
     } catch (e) {
       console.log("Password not found.");
     }
+
+    e.target.reset();
   };
 
   return (

@@ -35,11 +35,10 @@ const AddPage = () => {
       } else {
         setPwSaved(false);
       }
-
-      e.target.reset();
     } catch (e) {
       console.error(e);
     }
+    e.target.reset();
   };
 
   const generatePw = (e) => {
