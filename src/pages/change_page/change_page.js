@@ -7,6 +7,7 @@ import axios from "axios";
 import FormComponent from "../../components/form_component/form.component";
 import InputComponent from "../../components/input_component/input.component";
 import ButtonComponent from "../../components/button_component/button.component";
+import ImageComponent from "../../components/image_component/image.component";
 
 import encryptPw from "../../pw_utils/encryptPassword";
 import createHash from "../../pw_utils/createHash";
@@ -60,7 +61,7 @@ const ChangePage = () => {
 
   return (
     <div className="change-page-container">
-      <img src="./images/snake.jpg" className="img" alt="snake" />
+      <ImageComponent src="./images/snake.jpg" alt="snake" />
       <FormComponent method="post" onSubmit={onSubmit}>
         <InputComponent
           type="password"

@@ -5,6 +5,7 @@ import "./login_page.styles.scss";
 import InputComponent from "../../components/input_component/input.component";
 import ButtonComponent from "../../components/button_component/button.component";
 import FormComponent from "../../components/form_component/form.component";
+import ImageComponent from "../../components/image_component/image.component";
 
 import createHash from "../../pw_utils/createHash";
 import encryptPw from "../../pw_utils/encryptPassword";
@@ -61,7 +62,7 @@ const LoginPage = ({ setLoggedIn }) => {
     <div className="login-page-container">
       <header>
         <h1>Noel Codes PW Manager</h1>
-        <img className="img" alt="logo" src="./images/logo.jpg" />
+        <ImageComponent alt="logo" src="./images/logo.jpg" />
       </header>
       <FormComponent onSubmit={onSubmit} method="post">
         <InputComponent

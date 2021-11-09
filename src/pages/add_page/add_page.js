@@ -5,6 +5,7 @@ import axios from "axios";
 import InputComponent from "../../components/input_component/input.component";
 import ButtonComponent from "../../components/button_component/button.component";
 import FormComponent from "../../components/form_component/form.component";
+import ImageComponent from "../../components/image_component/image.component";
 
 import pwGenerator from "../../pw_utils/passwordGenerator";
 import encryptPw from "../../pw_utils/encryptPassword";
@@ -85,7 +86,7 @@ const AddPage = () => {
         <div>{password}</div>
         <ButtonComponent>GENERATE PW</ButtonComponent>
       </FormComponent>
-      <img className="img" src="./images/nasa.jpg" alt="nasa" />
+      <ImageComponent src="./images/nasa.jpg" alt="nasa" />
     </div>
   );
 };

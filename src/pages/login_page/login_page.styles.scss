@@ -10,12 +10,14 @@
     font-size: 55px;
     margin: 0;
   }
+}
 
-  .img {
-    margin: 0 auto;
-    width: 35vw;
-    border: 1px solid gray;
-    display: flex;
-    align-items: center;
+@media screen and (max-width: 480px) {
+  .login-page-container {
+    padding: 10vh 0;
+
+    h1 {
+      font-size: 40px;
+    }
   }
 }

@@ -5,14 +5,6 @@
   justify-content: center;
   padding: 5vh 0;
 
-  .img {
-    margin: 0 auto;
-    width: 35vw;
-    border: 1px solid gray;
-    display: flex;
-    align-items: center;
-  }
-
   .pw-label {
     font-size: 1.1rem;
   }
@@ -21,5 +13,11 @@
     width: 100%;
     text-align: left;
     border-bottom: 1px solid white;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pws-page-container {
+    padding: 14vh 0;
   }
 }

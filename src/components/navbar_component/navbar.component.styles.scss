@@ -15,3 +15,9 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .navbar-container {
+    gap: 40px;
+  }
+}

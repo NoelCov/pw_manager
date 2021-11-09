@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import FormComponent from "../../components/form_component/form.component";
 import ButtonComponent from "../../components/button_component/button.component";
 import InputComponent from "../../components/input_component/input.component";
+import ImageComponent from "../../components/image_component/image.component";
 
 import { server } from "../../constants";
 
@@ -64,7 +65,7 @@ const PwsPage = () => {
         )}
         <ButtonComponent>GET</ButtonComponent>
       </FormComponent>
-      <img className="img" alt="logo" src="./images/hack.jpg" />
+      <ImageComponent alt="logo" src="./images/hack.jpg" />
     </div>
   );
 };

@@ -4,12 +4,10 @@
   align-items: center;
   justify-content: center;
   padding: 5vh 0;
+}
 
-  .img {
-    margin: 0 auto;
-    width: 35vw;
-    border: 1px solid gray;
-    display: flex;
-    align-items: center;
+@media screen and (max-width: 480px) {
+  .change-page-container {
+    padding: 10vh 0;
   }
 }

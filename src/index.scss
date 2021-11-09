@@ -16,4 +16,10 @@ body {
     color: inherit;
     text-decoration: none;
   }
+
+  @media screen and (max-width: 480px) {
+    body {
+      min-height: auto;
+    }
+  }
 }
